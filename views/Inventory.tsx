@@ -22,7 +22,15 @@ export default function Inventory({ navigation }: any) {
             Array(50)
               .fill("")
               .map((item, index) => (
-                <View key={index} style={styles.item}>
+                <Pressable
+                  key={index}
+                  style={({ pressed }) => [
+                    {
+                      backgroundColor: pressed ? "#56F25E" : "#99FF9E",
+                    },
+                    styles.item,
+                  ]}
+                >
                   <Text
                     style={{
                       textAlign: "center",
@@ -32,7 +40,7 @@ export default function Inventory({ navigation }: any) {
                   >
                     Hola
                   </Text>
-                </View>
+                </Pressable>
               )),
           ]}
         </View>

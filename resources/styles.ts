@@ -51,7 +51,6 @@ const menu = StyleSheet.create({
   option: {
     width: 150,
     height: 120,
-    backgroundColor: "#99D9FF",
     justifyContent: "center",
     borderRadius: 40,
     margin: 5,
@@ -90,7 +89,6 @@ const inventory = StyleSheet.create({
   item: {
     width: 100,
     height: 100,
-    backgroundColor: "#99FF9E",
     justifyContent: "center",
     borderRadius: 40,
     margin: 5,
@@ -107,7 +105,7 @@ const shop = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 30,
     color: "#FFC429",
-    marginVertical: "7%",
+    marginVertical: "8%",
   },
   prevButton: {
     position: "absolute",
@@ -129,7 +127,6 @@ const shop = StyleSheet.create({
   item: {
     width: 100,
     height: 100,
-    backgroundColor: "#FFEDBE",
     justifyContent: "center",
     borderRadius: 40,
     margin: 5,
@@ -140,10 +137,9 @@ const shop = StyleSheet.create({
     alignItems: "center",
   },
   section: {
-    width: 150,
+    width: 120,
     height: 70,
     justifyContent: "center",
-    backgroundColor: "#FFC429",
   },
   sectionText: {
     textAlign: "center",

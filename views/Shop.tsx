@@ -4,6 +4,13 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { shop as styles } from "../resources/styles";
 
+const SECTIONS = [
+  { title: "Comida" },
+  { title: "Bebidas" },
+  { title: "Aseo" },
+  { title: "Juguetes" },
+];
+
 export default function Shop({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
@@ -19,17 +26,19 @@ export default function Shop({ navigation }: any) {
       <ScrollView horizontal={true}>
         <View style={styles.sections}>
           {[
-            Array(3)
-              .fill("")
-              .map((item, index) => (
-                <View key={index} style={styles.section}>
-                  <Text
-                    style={styles.sectionText}
-                  >
-                    HOLAAAAAA
-                  </Text>
-                </View>
-              )),
+            SECTIONS.map((item, index) => (
+              <Pressable
+                key={index}
+                style={({ pressed }) => [
+                  {
+                    backgroundColor: pressed ? "#F1AF00" : "#FFC429",
+                  },
+                  styles.section,
+                ]}
+              >
+                <Text style={styles.sectionText}>{item.title}</Text>
+              </Pressable>
+            )),
           ]}
         </View>
       </ScrollView>
@@ -40,7 +49,15 @@ export default function Shop({ navigation }: any) {
             Array(50)
               .fill("")
               .map((item, index) => (
-                <View key={index} style={styles.item}>
+                <Pressable
+                  key={index}
+                  style={({ pressed }) => [
+                    {
+                      backgroundColor: pressed ? "#FFDE88" : "#FFEDBE",
+                    },
+                    styles.item,
+                  ]}
+                >
                   <Text
                     style={{
                       textAlign: "center",
@@ -50,7 +67,7 @@ export default function Shop({ navigation }: any) {
                   >
                     Hola
                   </Text>
-                </View>
+                </Pressable>
               )),
           ]}
         </View>
