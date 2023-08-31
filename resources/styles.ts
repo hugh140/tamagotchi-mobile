@@ -74,7 +74,7 @@ const inventory = StyleSheet.create({
     position: "absolute",
     top: "3%",
     start: "5%",
-    backgroundColor: "#99FF9F",
+    backgroundColor: "#00C800",
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 5,
@@ -106,14 +106,14 @@ const shop = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 30,
-    color: "#C89800",
+    color: "#FFC429",
     marginVertical: "7%",
   },
   prevButton: {
     position: "absolute",
     top: "3%",
     start: "5%",
-    backgroundColor: "#FFE299",
+    backgroundColor: "#FFC429",
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 5,
@@ -124,27 +124,33 @@ const shop = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     margin: 10,
-    marginBottom: 120,
+    marginBottom: 200,
   },
   item: {
     width: 100,
     height: 100,
-    backgroundColor: "#FFE399",
+    backgroundColor: "#FFEDBE",
     justifyContent: "center",
     borderRadius: 40,
     margin: 5,
   },
   sections: {
-    backgroundColor: "#FFC429",
     flex: 1,
     flexDirection: "row",
-    width: "100%",
+    alignItems: "center",
   },
   section: {
-    width: 100,
-    height: 50,
+    width: 150,
+    height: 70,
     justifyContent: "center",
+    backgroundColor: "#FFC429",
   },
+  sectionText: {
+    textAlign: "center",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 20
+  }
 });
 
 export { shop, home, menu, inventory };

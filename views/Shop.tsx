@@ -24,13 +24,9 @@ export default function Shop({ navigation }: any) {
               .map((item, index) => (
                 <View key={index} style={styles.section}>
                   <Text
-                    style={{
-                      textAlign: "center",
-                      color: "white",
-                      fontWeight: "bold",
-                    }}
+                    style={styles.sectionText}
                   >
-                    Hola
+                    HOLAAAAAA
                   </Text>
                 </View>
               )),
@@ -48,7 +44,7 @@ export default function Shop({ navigation }: any) {
                   <Text
                     style={{
                       textAlign: "center",
-                      color: "#C89B00",
+                      color: "#FFB800",
                       fontWeight: "bold",
                     }}
                   >
