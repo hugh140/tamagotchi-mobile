@@ -1,58 +1,32 @@
-import { ScrollView, View, Text, StyleSheet } from "react-native";
+import { ScrollView, View, Text, Pressable } from "react-native";
+import { menu as styles } from "../resources/styles";
 
 const OPTIONS = [
-  { title: "Tienda" },
-  { title: "Tienda" },
-  { title: "Tienda" },
-  { title: "Tienda" },
-  { title: "Tienda" },
-  { title: "Tienda" },
+  { title: "Inventario", link: 'Inventory'  },
+  { title: "Tienda", link: 'Shop'  },
+  { title: "Configuración", link: 'Shop'  },
+  { title: "Tienda", link: 'Shop'  },
 ];
 
-export default function Menu() {
+export default function Menu({ nav }: any) {
   return (
     <View style={styles.options}>
       <View>
         <Text style={styles.title}>Menú</Text>
       </View>
-      <ScrollView horizontal={true}>
+      <ScrollView horizontal={true} style={{ marginHorizontal: 5 }}>
         {OPTIONS.map((option, index) => (
-          <View key={index} style={styles.option}>
-            <Text style={{ textAlign: "center", color: "#007EC8" }}>
-              {option.title}
-            </Text>
-          </View>
+          <Pressable onPress={() => nav.navigate(option.link)} key={index}>
+            <View style={styles.option}>
+              <Text style={{ textAlign: "center", color: "#007EC8", fontWeight: 'bold' }}>
+                {option.title}
+              </Text>
+            </View>
+          </Pressable>
         ))}
       </ScrollView>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 20,
-    padding: 10,
-    textAlign: "center",
-    color: "#007EC8",
-    fontWeight: "bold",
-  },
-  options: {
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor: "#BBE6FF",
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    zIndex: -1,
-  },
-  option: {
-    width: 150,
-    height: 150,
-    backgroundColor: "#99D9FF",
-    justifyContent: "center",
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
-    margin: 5,
-  },
-});
+
