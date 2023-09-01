@@ -54,12 +54,52 @@ const home = StyleSheet.create({
   },
 });
 
+const begin = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#EBF8FF",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 30,
+    color: "#2C95E2",
+  },
+  input: {
+    borderWidth: 1,
+    padding: 8,
+    borderRadius: 5,
+    borderColor: "#B0B0B0",
+    marginVertical: 10,
+  },
+  alert: {
+    marginTop: 40,
+    backgroundColor: "#FF9090",
+    padding: 20,
+    width: "70%",
+    borderRadius: 10,
+    position: "absolute",
+    bottom: "20%",
+  },
+  modal: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  modalText: {
+    fontSize: 25,
+    color: "#6B7DF0",
+    fontWeight: "bold",
+  },
+});
+
 const inventory = StyleSheet.create({
   container: {
     marginTop: 30,
     alignItems: "center",
     backgroundColor: "#EBFFEC",
-    height: '100%'
+    height: "100%",
   },
   title: {
     fontWeight: "bold",
@@ -90,15 +130,24 @@ const inventory = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 40,
     margin: 5,
-    position: 'relative'
+    position: "relative",
   },
   counter: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 3,
     right: 3,
     fontSize: 17,
-    color: '#00A800'
-  }
+    color: "#00A800",
+  },
+  alert: {
+    position: "absolute",
+    top: "40%",
+    padding: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "#00A800",
+    borderWidth: 1,
+  },
 });
 
 const shop = StyleSheet.create({
@@ -145,7 +194,7 @@ const shop = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 40,
     margin: 5,
-    position: 'relative'
+    position: "relative",
   },
   sections: {
     flex: 1,
@@ -164,16 +213,21 @@ const shop = StyleSheet.create({
     fontSize: 20,
   },
   price: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 3,
     right: 3,
-    color: "#FFB800"
+    color: "#FFB800",
   },
   modal: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  modalText: {
+    fontWeight: "bold",
+    marginBottom: 5,
+    fontSize: 25,
+  },
 });
 
-export { shop, home, inventory };
+export { shop, home, inventory, begin };

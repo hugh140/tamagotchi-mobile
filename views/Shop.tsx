@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ScrollView,
   SafeAreaView,
@@ -27,14 +27,38 @@ type SectionType = { title: string; price: number }[];
 export default function Shop({ navigation }: any) {
   const [section, setSection] = useState(food);
   const [modal, setModal] = useState(false);
+  const [errorModal, setErrorModal] = useState(false);
+  const [money, setMoney] = useState(0);
+
+  useEffect(() => {
+    storage
+      .load({
+        key: "money",
+      })
+      .then((res) => setMoney(res.money));
+  }, []);
 
   function changeSection(list: SectionType) {
     setSection(list);
   }
 
-  async function buyConfirm(product: string) {
+  async function buyConfirm(product: string, price: number) {
     setModal(true);
-    setTimeout(() => setModal(false), 700);
+    setTimeout(() => setModal(false), 1000);
+
+    if (price > money) {
+      setErrorModal(true);
+      return;
+    } else setErrorModal(false);
+
+    storage.save({
+      key: "money",
+      data: {
+        money: money - price,
+      },
+    });
+
+    setMoney(money - price);
 
     try {
       const loadedProduct = await storage.load({
@@ -64,14 +88,35 @@ export default function Shop({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
       <Modal animationType="fade" transparent={false} visible={modal}>
-        <View style={styles.modal}>
-          <Text
-            style={{ fontWeight: "bold", marginBottom: 5, color: "#FFAEF5" }}
-          >
-            Compra Exitosa
-          </Text>
-          <Text style={{ color: "#FF81F0" }}>⸜(｡˃ ᵕ ˂ )⸝♡</Text>
-        </View>
+        {!errorModal ? (
+          <View style={styles.modal}>
+            <Text
+              style={{
+                color: "#FFAEF5",
+                ...styles.modalText,
+              }}
+            >
+              Compra Exitosa
+            </Text>
+            <Text style={{ color: "#FF81F0", ...styles.modalText }}>
+              ⸜(｡˃ ᵕ ˂ )⸝♡
+            </Text>
+          </View>
+        ) : (
+          <View style={styles.modal}>
+            <Text
+              style={{
+                color: "#9234D8",
+                ...styles.modalText,
+              }}
+            >
+              No tienes suficiente dinero.
+            </Text>
+            <Text style={{ color: "#7120AD", ...styles.modalText }}>
+              (っ◞‸◟ c)
+            </Text>
+          </View>
+        )}
       </Modal>
 
       <Pressable
@@ -81,7 +126,7 @@ export default function Shop({ navigation }: any) {
         <FontAwesomeIcon icon={faChevronLeft} style={{ color: "white" }} />
       </Pressable>
 
-      <Text style={styles.coins}>$1000</Text>
+      <Text style={styles.coins}>${money}</Text>
 
       <Text style={styles.title}>Tienda</Text>
 
@@ -112,7 +157,7 @@ export default function Shop({ navigation }: any) {
             section.map((item, index) => (
               <Pressable
                 key={index}
-                onPress={() => buyConfirm(item.title)}
+                onPress={() => buyConfirm(item.title, item.price)}
                 style={({ pressed }) => [
                   {
                     backgroundColor: pressed ? "#FFDE88" : "#FFEDBE",

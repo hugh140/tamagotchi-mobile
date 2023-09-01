@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import storage from "../resources/storage";
 
-import { ScrollView, SafeAreaView, Text, Pressable, View } from "react-native";
+import {
+  ScrollView,
+  SafeAreaView,
+  Text,
+  Pressable,
+  View,
+  Button,
+} from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,7 +21,7 @@ export default function Inventory({ navigation }: any) {
 
   useEffect(() => {
     storage.getAllDataForKey("inventory").then((res) => setProducts(res));
-  }, []);
+  }, [products]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -26,6 +33,22 @@ export default function Inventory({ navigation }: any) {
       </Pressable>
 
       <Text style={styles.title}>Inventario</Text>
+
+      {!products?.length && (
+        <View style={styles.alert}>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+            Aún no tienes productos. ˙◠˙
+          </Text>
+          <Text style={{ marginVertical: 10 }}>
+            Ve a la tienda para comprarle cosas a tu Tamagotchi
+          </Text>
+          <Button
+            title="Ir a la tienda"
+            color="#00C800"
+            onPress={() => navigation.navigate("Shop")}
+          />
+        </View>
+      )}
 
       <ScrollView>
         <View style={styles.items}>

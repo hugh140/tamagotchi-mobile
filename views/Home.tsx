@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -7,6 +8,7 @@ import {
   Pressable,
 } from "react-native";
 import { home as styles } from "../resources/styles";
+import storage from "../resources/storage";
 
 const OPTIONS = [
   { title: "Inventario", link: "Inventory" },
@@ -14,11 +16,23 @@ const OPTIONS = [
   { title: "Configuración", link: "Shop" },
 ];
 
+storage.clearMap()
+
 export default function Home({ navigation }: any) {
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    storage
+      .load({
+        key: "name",
+      })
+      .then((res) => setName(res.name));
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>My Tamagotchi</Text>
+        <Text style={styles.title}>{name}</Text>
       </View>
 
       <View style={styles.pet}>
