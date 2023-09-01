@@ -1,8 +1,18 @@
-import { Text, View, SafeAreaView, Image } from "react-native";
-
-import Menu from "../components/IndexMenu";
-
+import {
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  ScrollView,
+  Pressable,
+} from "react-native";
 import { home as styles } from "../resources/styles";
+
+const OPTIONS = [
+  { title: "Inventario", link: "Inventory" },
+  { title: "Tienda", link: "Shop" },
+  { title: "Configuración", link: "Shop" },
+];
 
 export default function Home({ navigation }: any) {
   return (
@@ -21,7 +31,35 @@ export default function Home({ navigation }: any) {
         </View>
       </View>
 
-      <Menu nav={navigation} />
+      <View style={styles.options}>
+        <View>
+          <Text style={styles.titleMenu}>Menú</Text>
+        </View>
+        <ScrollView horizontal={true} style={{ marginHorizontal: 5 }}>
+          {OPTIONS.map((option, index) => (
+            <Pressable
+              onPress={() => navigation.navigate(option.link)}
+              key={index}
+              style={({ pressed }) => [
+                {
+                  backgroundColor: pressed ? "#54BFFF" : "#99D9FF",
+                },
+                styles.option,
+              ]}
+            >
+              <Text
+                style={{
+                  textAlign: "center",
+                  color: "#007EC8",
+                  fontWeight: "bold",
+                }}
+              >
+                {option.title}
+              </Text>
+            </Pressable>
+          ))}
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }

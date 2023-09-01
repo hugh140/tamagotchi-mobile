@@ -30,10 +30,7 @@ const home = StyleSheet.create({
     fontSize: 15,
     color: "#007EC8",
   },
-});
-
-const menu = StyleSheet.create({
-  title: {
+  titleMenu: {
     fontSize: 20,
     padding: 10,
     textAlign: "center",
@@ -62,6 +59,7 @@ const inventory = StyleSheet.create({
     marginTop: 30,
     alignItems: "center",
     backgroundColor: "#EBFFEC",
+    height: '100%'
   },
   title: {
     fontWeight: "bold",
@@ -92,7 +90,15 @@ const inventory = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 40,
     margin: 5,
+    position: 'relative'
   },
+  counter: {
+    position: 'absolute',
+    bottom: 3,
+    right: 3,
+    fontSize: 17,
+    color: '#00A800'
+  }
 });
 
 const shop = StyleSheet.create({
@@ -116,6 +122,15 @@ const shop = StyleSheet.create({
     paddingVertical: 15,
     borderRadius: 5,
   },
+  coins: {
+    position: "absolute",
+    top: "4%",
+    end: 0,
+    paddingHorizontal: "10%",
+    fontSize: 20,
+    textAlign: "center",
+    color: "#FFC429",
+  },
   items: {
     flex: 1,
     flexDirection: "row",
@@ -130,6 +145,7 @@ const shop = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 40,
     margin: 5,
+    position: 'relative'
   },
   sections: {
     flex: 1,
@@ -145,8 +161,19 @@ const shop = StyleSheet.create({
     textAlign: "center",
     color: "white",
     fontWeight: "bold",
-    fontSize: 20
+    fontSize: 20,
+  },
+  price: {
+    position: 'absolute',
+    bottom: 3,
+    right: 3,
+    color: "#FFB800"
+  },
+  modal: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
-export { shop, home, menu, inventory };
+export { shop, home, inventory };
