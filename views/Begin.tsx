@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { begin as styles } from "../resources/styles";
 
-import storage from "../resources/storage";
+import initialStorage from "../resources/initialStorage";
 
 export default function Begin({ navigation }: any) {
   const [name, setName] = useState("");
@@ -32,19 +32,7 @@ export default function Begin({ navigation }: any) {
   function beginExecute() {
     setModal(true)
     setTimeout(() => {
-      storage.clearMap();
-      storage.save({
-        key: "name",
-        data: {
-          name: name,
-        },
-      });
-      storage.save({
-        key: "money",
-        data: {
-          money: 10,
-        },
-      });
+      initialStorage(name)
       navigation.navigate("Home")
     },3000)
 

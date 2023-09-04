@@ -36,10 +36,10 @@ export default function Inventory({ navigation }: any) {
 
       {!products?.length && (
         <View style={styles.alert}>
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold", color: "#1F9B21" }}>
             Aún no tienes productos. ˙◠˙
           </Text>
-          <Text style={{ marginVertical: 10 }}>
+          <Text style={{ marginVertical: 10, color: "#1F9B21" }}>
             Ve a la tienda para comprarle cosas a tu Tamagotchi
           </Text>
           <Button

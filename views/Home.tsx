@@ -9,14 +9,13 @@ import {
 } from "react-native";
 import { home as styles } from "../resources/styles";
 import storage from "../resources/storage";
+import Coins from "../components/coinsSystem";
 
 const OPTIONS = [
   { title: "Inventario", link: "Inventory" },
   { title: "Tienda", link: "Shop" },
   { title: "Configuración", link: "Shop" },
 ];
-
-storage.clearMap()
 
 export default function Home({ navigation }: any) {
   const [name, setName] = useState("");
@@ -34,6 +33,8 @@ export default function Home({ navigation }: any) {
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{name}</Text>
       </View>
+
+      <Coins />
 
       <View style={styles.pet}>
         <Image

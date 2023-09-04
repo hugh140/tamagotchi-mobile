@@ -11,7 +11,7 @@ import Begin from "./views/Begin";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [initialRoute, setInitialRoute] = useState<boolean>();
+  const [initialRoute, setInitialRoute] = useState<JSX.Element>();
 
   useEffect(() => {
     storage
@@ -19,30 +19,30 @@ export default function App() {
         key: "name",
       })
       .then(() => {
-        setInitialRoute(true);
+        setInitialRoute(
+          <NavigationContainer>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="Begin" component={Begin} />
+              <Stack.Screen name="Inventory" component={Inventory} />
+              <Stack.Screen name="Shop" component={Shop} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        );
       })
       .catch(() => {
-        setInitialRoute(false);
+        setInitialRoute(
+          <NavigationContainer>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="Begin" component={Begin} />
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="Inventory" component={Inventory} />
+              <Stack.Screen name="Shop" component={Shop} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        );
       });
   }, []);
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {initialRoute ? (
-          <>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Begin" component={Begin} />
-          </>
-        ) : (
-          <>
-            <Stack.Screen name="Begin" component={Begin} />
-            <Stack.Screen name="Home" component={Home} />
-          </>
-        )}
-        <Stack.Screen name="Inventory" component={Inventory} />
-        <Stack.Screen name="Shop" component={Shop} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return initialRoute;
 }

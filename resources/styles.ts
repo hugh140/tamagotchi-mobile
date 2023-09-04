@@ -52,6 +52,13 @@ const home = StyleSheet.create({
     borderRadius: 40,
     margin: 5,
   },
+  money: {
+    position: "absolute",
+    padding: 5,
+    zIndex: 1,
+    backgroundColor: 'rgb(213, 255, 136)',
+    borderRadius: 20
+  },
 });
 
 const begin = StyleSheet.create({
@@ -147,6 +154,7 @@ const inventory = StyleSheet.create({
     alignItems: "center",
     borderColor: "#00A800",
     borderWidth: 1,
+    borderRadius: 50,
   },
 });
 
