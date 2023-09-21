@@ -7,6 +7,7 @@ import Home from "./views/Home";
 import Inventory from "./views/Inventory";
 import Shop from "./views/Shop";
 import Begin from "./views/Begin";
+import Necessity from "./views/Necessity";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ export default function App() {
               <Stack.Screen name="Begin" component={Begin} />
               <Stack.Screen name="Inventory" component={Inventory} />
               <Stack.Screen name="Shop" component={Shop} />
+              <Stack.Screen name="Necessity" component={Necessity} />
             </Stack.Navigator>
           </NavigationContainer>
         );
@@ -38,6 +40,7 @@ export default function App() {
               <Stack.Screen name="Home" component={Home} />
               <Stack.Screen name="Inventory" component={Inventory} />
               <Stack.Screen name="Shop" component={Shop} />
+              <Stack.Screen name="Necessity" component={Necessity} />
             </Stack.Navigator>
           </NavigationContainer>
         );

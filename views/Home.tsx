@@ -14,6 +14,7 @@ import Coins from "../components/coinsSystem";
 const OPTIONS = [
   { title: "Inventario", link: "Inventory" },
   { title: "Tienda", link: "Shop" },
+  { title: "Necesidades", link: "Necessity" },
   { title: "Configuración", link: "Shop" },
 ];
 

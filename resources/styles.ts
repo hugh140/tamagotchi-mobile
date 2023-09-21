@@ -56,8 +56,8 @@ const home = StyleSheet.create({
     position: "absolute",
     padding: 5,
     zIndex: 1,
-    backgroundColor: 'rgb(213, 255, 136)',
-    borderRadius: 20
+    backgroundColor: "rgb(213, 255, 136)",
+    borderRadius: 20,
   },
 });
 
@@ -238,4 +238,36 @@ const shop = StyleSheet.create({
   },
 });
 
-export { shop, home, inventory, begin };
+const necessity = StyleSheet.create({
+  container: {
+    marginTop: 30,
+    alignItems: "center",
+    backgroundColor: "#ADE3FF",
+    height: "100%",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 30,
+    color: "#00A8FF",
+    marginVertical: "7%",
+  },
+  prevButton: {
+    position: "absolute",
+    top: "3%",
+    start: "5%",
+    backgroundColor: "#1C9CDF",
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    borderRadius: 5,
+  },
+  indicates: {
+    fontSize: 18,
+    color: "#185FAF",
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 5,
+    fontWeight: 'bold'
+  }
+});
+
+export { shop, home, inventory, begin, necessity };
